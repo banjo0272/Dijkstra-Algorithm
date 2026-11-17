@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class Dj {
@@ -16,5 +17,9 @@ public class Dj {
             graph.computeIfAbsent(p[0], k-> new HashMap<>()).put(p[1], w);
             graph.computeIfAbsent(p[1], k-> new HashMap<>()).put(p[0], w);
         }
+    }
+
+    public Set<String> nodes() {
+        return graph.keySet();
     }
 }
