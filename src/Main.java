@@ -19,6 +19,5 @@ public class Main{
             System.out.println();
             d.run(start);
         }
-
     }
 }
