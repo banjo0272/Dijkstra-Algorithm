@@ -2,6 +2,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -22,6 +24,14 @@ class DjTest {
         Dj dj = test();
         assertTrue(dj.nodes().contains("A"));
         assertFalse(dj.nodes().contains("Z"));
+    }
+
+    @Test
+    void runTest() throws Exception{
+        ByteArrayOutputStream out= new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        test().run("A");
+        assertTrue(out.toString().contains("A-> B-> C dist: 5"));
     }
 
 
