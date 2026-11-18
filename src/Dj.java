@@ -23,7 +23,7 @@ public class Dj {
 
     public void run(String start) {
         Map<String, Double> dist= new HashMap<>();
-        Map<String, Double>prev = new HashMap<>();
+        Map<String, String>prev = new HashMap<>();
         for(String v : graph.keySet()) {
             dist.put(v, Double.POSITIVE_INFINITY);
             prev.put(v, null);
@@ -44,27 +44,28 @@ public class Dj {
                 double alt =dist.get(u)+e.getValue();
                 if(alt< dist.get(v)){
                     dist.put(v, alt);
-                    prev.put(v, Double.valueOf(u));
+                    prev.put(v, u);
                     pq.add(Map.entry(v, alt));
                 }
             }
         }
-        DecimalFormat fmt = new DecimalFormat("0.###")
+        DecimalFormat fmt = new DecimalFormat("0.###");
 
         for(String node : graph.keySet()) {
             if(dist.get(node) == Double.POSITIVE_INFINITY){
                 System.out.println(start + "= " + node+ ": unreachable");
                 continue;
             }
+            LinkedList<String> path = new LinkedList<>();
+            for(String n= node; n != null; n=prev.get(n)) {
+                path.addFirst(n);
+            }
+
+            System.out.println(String.join("-> ", path) + " dist: " + fmt.format(dist.get(node)));
+
         }
 
 
-        LinkedList<String> path = new LinkedList<>();
-        for(String n= node; n != null; n=prev.get(n)) {
-            path.addFirst(n);
-        }
-
-        System.out.println(String.join("-> ", path) + " dist: " + fmt.format(dist.get(node)));
 
     }
 }
