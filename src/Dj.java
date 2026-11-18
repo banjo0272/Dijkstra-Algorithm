@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Dj {
@@ -48,6 +49,7 @@ public class Dj {
                 }
             }
         }
+        DecimalFormat fmt = new DecimalFormat("0.###")
 
         for(String node : graph.keySet()) {
             if(dist.get(node) == Double.POSITIVE_INFINITY){
@@ -55,6 +57,14 @@ public class Dj {
                 continue;
             }
         }
+
+
+        LinkedList<String> path = new LinkedList<>();
+        for(String n= node; n != null; n=prev.get(n)) {
+            path.addFirst(n);
+        }
+
+        System.out.println(String.join("-> ", path) + " dist: " + fmt.format(dist.get(node)));
 
     }
 }
