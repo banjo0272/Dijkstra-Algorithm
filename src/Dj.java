@@ -30,6 +30,19 @@ public class Dj {
 
         PriorityQueue<Map.Entry<String, Double>> pq= new PriorityQueue<>(Map.Entry.comparingByValue());
 
+        dist.put(start, 0.0);
+        pq.add(Map.entry(start, 0.0));
+
+        while(!pq.isEmpty()){
+            Map.Entry<String, Double> cur= pq.poll();
+            String u= cur.getKey();
+            if(cur.getValue() > dist.get(u)) continue;
+            for(Map.Entry<String, Double> e: graph.get(u).entrySet()) {
+                String v= e.getKey();
+
+                double alt =dist.get(u)+e.getValue();
+            }
+        }
 
 
 
