@@ -26,6 +26,11 @@ public class Dj {
     public void run(String start) {
         Map<String, Double> dist= new HashMap<>();
         Map<String, Double>prev = new HashMap<>();
+        for(String v : graph.keySet()) {
+            dist.put(v, Double.POSITIVE_INFINITY);
+            prev.put(v, null);
+        }
+
 
 
     }
