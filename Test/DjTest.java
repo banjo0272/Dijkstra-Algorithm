@@ -11,11 +11,20 @@ class DjTest {
     @TempDir
     Path tempDir;
 
-    private Dj dj() throws Exception{
+    private Dj test() throws Exception{
         Path file = tempDir.resolve("graph.txt");
         Files.writeString(file, "A B 2\nB C 3\n A C 10\n");
         return new Dj(file.toString());
     }
+
+    @Test
+    void nodeValidationTest() throws Exception{
+        Dj dj = test();
+        assertTrue(dj.nodes().contains("A"));
+        assertFalse(dj.nodes().contains("Z"));
+    }
+
+
 
 
 }
