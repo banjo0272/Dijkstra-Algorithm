@@ -6,6 +6,18 @@ public class Main{
 
         System.out.println("Graph file to read from: ");
         Dj d = new Dj(in.nextLine().trim());
+        System.out.println("List of nodes: " + String.join(", ", d.nodes()));
+        while(true) {
+            System.out.print("\nStarting node: ");
+            String start = in.nextLine().trim();
+
+            if(start.isEmpty()) break;
+            if(!d.nodes().contains(start)){
+                System.out.println("Invalid");
+                continue;
+            }
+
+        }
 
     }
 }
