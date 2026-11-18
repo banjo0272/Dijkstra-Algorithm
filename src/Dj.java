@@ -41,6 +41,11 @@ public class Dj {
                 String v= e.getKey();
 
                 double alt =dist.get(u)+e.getValue();
+                if(alt< dist.get(v)){
+                    dist.put(v, alt);
+                    prev.put(v, Double.valueOf(u));
+                    pq.add(Map.entry(v, alt));
+                }
             }
         }
 
