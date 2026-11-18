@@ -22,4 +22,11 @@ public class Dj {
     public Set<String> nodes() {
         return graph.keySet();
     }
+
+    public void run(String start) {
+        Map<String, Double> dist= new HashMap<>();
+        Map<String, Double>prev = new HashMap<>();
+
+
+    }
 }
