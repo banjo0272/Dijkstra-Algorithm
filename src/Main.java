@@ -16,7 +16,8 @@ public class Main{
                 System.out.println("Invalid");
                 continue;
             }
-
+            System.out.println();
+            d.run(start);
         }
 
     }
