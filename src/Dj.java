@@ -49,9 +49,12 @@ public class Dj {
             }
         }
 
-
-
-
+        for(String node : graph.keySet()) {
+            if(dist.get(node) == Double.POSITIVE_INFINITY){
+                System.out.println(start + "= " + node+ ": unreachable");
+                continue;
+            }
+        }
 
     }
 }
