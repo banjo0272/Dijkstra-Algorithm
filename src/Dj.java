@@ -1,10 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Dj {
     private final Map<String, Map<String, Double>> graph = new TreeMap<>();
@@ -30,6 +27,11 @@ public class Dj {
             dist.put(v, Double.POSITIVE_INFINITY);
             prev.put(v, null);
         }
+
+        PriorityQueue<Map.Entry<String, Double>> pq= new PriorityQueue<>(Map.Entry.comparingByValue());
+
+
+
 
 
 
